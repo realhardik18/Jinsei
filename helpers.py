@@ -24,6 +24,7 @@ def get_city_weather(city_name):
         }
         return data
 
+#function to get n number of fun facts for a particular plant
 def fun_fact_generator(plant_name):
     prompt=f'give me a short fun fact about the plant "{plant_name}"'
     url = "https://api.together.xyz/v1/chat/completions" 
@@ -45,6 +46,7 @@ def fun_fact_generator(plant_name):
         print(f"Error: {response.status_code}, {response.text}")
         return None
 
+#function to get a short description about the plant
 def description_generator(plant_name):
     prompt=f'give me a short description about the plant "{plant_name}"'
     url = "https://api.together.xyz/v1/chat/completions" 
@@ -66,8 +68,8 @@ def description_generator(plant_name):
         print(f"Error: {response.status_code}, {response.text}")
         return None
 
-
-def generate_data():
+#function to generate all the data and save it into a json file
+def generate_textual_data():
     with open('plants.txt','r') as file:
         plants=[plant.strip('\n') for plant in file.readlines()]
 
@@ -90,6 +92,19 @@ def generate_data():
     with open('db.json','w') as file:
         json.dump(DataBase,file)
 
+def initialize_planting_data():
+    with open('data/plants.txt','r') as file:
+        plants=[plant.strip('\n') for plant in file.readlines()]
+        data=dict()
+        for plant in plants:
+            plant_data=dict()
+            plant_data['Trange']=[0,0]
+            plant_data['RH']=[0,0]
+            data[plant]=plant_data
+        with open('planting_data.json','w') as file:
+            json.dump(data,file)
+
+#function to retrieve the data
 def retrieve_data():
     with open('db.json','r') as file:
         data=json.load(file)
@@ -99,4 +114,5 @@ def retrieve_data():
 
 
 #retrieve_data()
-generate_data()
+#generate_data()
+initialize_planting_data()

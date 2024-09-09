@@ -1,4 +1,5 @@
 import requests
+import random
 import json
 import time
 from creds import TOGETHER_API_KEY
@@ -105,14 +106,33 @@ def initialize_planting_data():
             json.dump(data,file)
 
 #function to retrieve the data
-def retrieve_data():
-    with open('db.json','r') as file:
+def retrieve_data(plant):
+    with open(r'data\textual_data.json','r') as file:
         data=json.load(file)
     for plant in list(data.keys()):
-        print(data[plant]['description']!=None)
+        return data[plant]
 
+def get_random_fact(plant):
+    return random.choice(list(set(retrieve_data(plant=plant)['facts'])))
 
+#algorithim which calculates which plant would be the most suited
+#first we calculate delta of avg ideal and input temp
+#then the same for relative humidity
+#then we add the two delta values for overall spread score
+#lower the spread score means the plant is more suitable to be planted
+def best_match(temp,RH):    
+    with open('data\planting_data.json','r') as file:
+        data=json.load(file)
+    plants=[list(data.keys())]    
+    deltaTdiff=[abs(sum(data[plant]['Trange'])//2 - temp) for plant in plants]
+    deltaRHdiff=[abs(sum(data[plant]['Trange'])//2 - RH) for plant in plants]
+    spread_score=[deltaRHdiff[c] + deltaTdiff[c] for c in range(len(plants))]
+
+    
 
 #retrieve_data()
 #generate_data()
-initialize_planting_data()
+#initialize_planting_data()
+#print(best_match(10,10))
+#print(retrieve_data('tomato'))
+print(get_random_fact('pepper'))

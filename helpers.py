@@ -4,27 +4,37 @@ import json
 import time
 import numpy as np
 from creds import TOGETHER_API_KEY
+import requests
+import os
 
-#function to first get coordinates of a city and then get its weather
 def get_city_weather(city_name):
     geo_url = f'https://geocoding-api.open-meteo.com/v1/search?name={city_name}'
 
     response = requests.get(geo_url)
+    print(response)
         
     geo_data = response.json()['results'][0]
     lat = geo_data['latitude']
     lon = geo_data['longitude']
         
-    weather_url = f'https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true&precipitation=true'
+    weather_url = f'https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true&precipitation=true&hourly=relative_humidity_2m'
         
     weather_response = requests.get(weather_url)
+    
     if weather_response.status_code == 200:
         weather_data = weather_response.json()['current_weather']
         temperature = weather_data['temperature']
-        data={
-            'temprature':temperature
+        
+        # Get relative humidity from hourly data
+        relative_humidity = weather_response.json()['hourly']['relative_humidity_2m'][0]
+        
+        data = {
+            'temperature': temperature,
+            'relative_humidity': relative_humidity
         }
         return data
+    else:
+        return None
 
 #function to get n number of fun facts for a particular plant
 def fun_fact_generator(plant_name):
@@ -133,12 +143,19 @@ def best_match(temp,RH):
     spread_score=np.array(spread_score)[idx]    
     return plants
 
+def get_plant_image(plant_name):
+    with open('data/plants.txt','r') as file:
+        f=[plant.strip('\n').lower() for plant in file.readlines()]
+    return f"{f.index(plant_name)}.png"
+
     
 
 #retrieve_data()
 #generate_data()
 #initialize_planting_data()
 #print(best_match(10,10))
-#print(retrieve_data('tomato'))
+#print(retrieve_data('tomato'))``
 #print(get_random_fact('pepper'))
-print(best_match(25,50))
+#print(best_match(25,50))
+#print(get_city_weather('delhi'))
+print(get_plant_image('tomato'))

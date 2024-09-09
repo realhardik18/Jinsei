@@ -1,202 +1,202 @@
 {
 	"chinese hibiscus": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  38
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  40,
+		  60
 	   ]
 	},
 	"pepper": {
 	   "Trange": [
-		  0,
-		  0
+		  21,
+		  26
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  65,
+		  85
 	   ]
 	},
 	"oleander": {
 	   "Trange": [
-		  0,
-		  0
+		  15,
+		  29
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  40,
+		  60
 	   ]
 	},
 	"Madagascar periwinkle": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  38
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  38,
+		  43
 	   ]
 	},
 	"Golden pothos": {
 	   "Trange": [
-		  0,
-		  0
+		  15,
+		  29
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  50,
+		  70
 	   ]
 	},
 	"Flame of the woods": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  38
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  40,
+		  50
 	   ]
 	},
 	"Aloe vera": {
 	   "Trange": [
-		  0,
-		  0
+		  13,
+		  27
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  30,
+		  50
 	   ]
 	},
 	"Common purslane": {
 	   "Trange": [
-		  0,
-		  0
+		  16,
+		  32
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  60,
+		  75
 	   ]
 	},
-	"Crown of thorns": {
+	"Common purslane": {
 	   "Trange": [
-		  0,
-		  0
+		  16,
+		  32
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  65,
+		  75
 	   ]
 	},
 	"Watermelon": {
 	   "Trange": [
-		  0,
-		  0
+		  21,
+		  29
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  60,
+		  80
 	   ]
 	},
 	"Tomato": {
 	   "Trange": [
-		  0,
-		  0
+		  21,
+		  27
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  65,
+		  75
 	   ]
 	},
 	"Guava": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  25
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  85,
+		  95
 	   ]
 	},
 	"Garden croton": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  41
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  40,
+		  80
 	   ]
 	},
 	"Holy basil": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  45
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  40,
+		  70
 	   ]
 	},
 	"Heart of jesus": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  25
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  40,
+		  60
 	   ]
 	},
 	"Peacock flower": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  38
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  50,
+		  60
 	   ]
 	},
 	"Crape jasmine": {
 	   "Trange": [
-		  0,
-		  0
+		  18,
+		  29
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  50,
+		  70
 	   ]
 	},
 	"Common coleus": {
 	   "Trange": [
-		  0,
-		  0
+		  16,
+		  24
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  50,
+		  70
 	   ]
 	},
 	"Moss rose": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  38
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  30,
+		  50
 	   ]
 	},
 	"Arabian jasmin": {
 	   "Trange": [
-		  0,
-		  0
+		  20,
+		  38
 	   ],
 	   "RH": [
-		  0,
-		  0
+		  40,
+		  60
 	   ]
 	}
  }

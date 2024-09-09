@@ -2,6 +2,7 @@ import requests
 import random
 import json
 import time
+import numpy as np
 from creds import TOGETHER_API_KEY
 
 #function to first get coordinates of a city and then get its weather
@@ -123,10 +124,14 @@ def get_random_fact(plant):
 def best_match(temp,RH):    
     with open('data\planting_data.json','r') as file:
         data=json.load(file)
-    plants=[list(data.keys())]    
-    deltaTdiff=[abs(sum(data[plant]['Trange'])//2 - temp) for plant in plants]
-    deltaRHdiff=[abs(sum(data[plant]['Trange'])//2 - RH) for plant in plants]
-    spread_score=[deltaRHdiff[c] + deltaTdiff[c] for c in range(len(plants))]
+    plants=np.array(list(data.keys()))
+    deltaTdiff=[abs(sum(data[plant]['Trange'])/2) - temp for plant in plants]
+    deltaRHdiff=[abs(sum(data[plant]['Trange'])/2 - RH)/100 for plant in plants]
+    spread_score=np.array([deltaRHdiff[c] + deltaTdiff[c] for c in range(len(plants))])        
+    idx=np.argsort(spread_score)
+    plants=np.array(plants)[idx]
+    spread_score=np.array(spread_score)[idx]    
+    return plants
 
     
 
@@ -135,4 +140,5 @@ def best_match(temp,RH):
 #initialize_planting_data()
 #print(best_match(10,10))
 #print(retrieve_data('tomato'))
-print(get_random_fact('pepper'))
+#print(get_random_fact('pepper'))
+print(best_match(25,50))

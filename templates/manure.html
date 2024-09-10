@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Create Manure at Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #6a5acd;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white !important;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .steps-nav {
+            margin-top: 20px;
+        }
+
+        .steps-nav .nav-item {
+            margin-right: 10px;
+        }
+
+        .steps-nav .nav-item .nav-link {
+            color: #6a5acd;
+        }
+
+        .steps-nav .nav-item .nav-link.active {
+            background-color: #6a5acd;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Manure Guide</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Navigation -->
+    <div class="container steps-nav">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="#step1" onclick="showStep(1)">Step 1: Collect Organic Waste</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#step2" onclick="showStep(2)">Step 2: Prepare a Compost Bin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#step3" onclick="showStep(3)">Step 3: Layer the Compost</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#step4" onclick="showStep(4)">Step 4: Maintain the Pile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#step5" onclick="showStep(5)">Step 5: Harvest the Manure</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Article Steps -->
+    <div class="container mt-5">
+        <div class="step active" id="step1">
+            <h2>Step 1: Collect Organic Waste</h2>
+            <p>The first step to creating manure at home is to collect organic waste. This includes food scraps such as
+                fruit and vegetable peelings, eggshells, coffee grounds, and garden clippings like leaves and grass.</p>
+            <div class="text-center">
+                <img src="placeholder1.jpg" alt="Organic Waste" class="card-img-top" width="500" height="500">
+            </div>
+        </div>
+
+        <div class="step" id="step2">
+            <h2>Step 2: Prepare a Compost Bin</h2>
+            <p>Once you've gathered your organic waste, the next step is to prepare a compost bin. Choose a bin that has
+                proper ventilation and is large enough to accommodate your organic waste.</p>
+            <div class="text-center">
+                <img src="placeholder2.jpg" alt="Compost Bin" class="card-img-top" width="500" height="500">
+            </div>
+        </div>
+
+        <div class="step" id="step3">
+            <h2>Step 3: Layer the Compost</h2>
+            <p>Now that your bin is ready, layer the compost material. Start with a base layer of brown materials like
+                dry leaves or paper, followed by green materials such as fruit scraps, and repeat the layers.</p>
+            <div class="text-center">
+                <img src="placeholder3.jpg" alt="Layering Compost" class="card-img-top" width="500" height="500">
+            </div>
+        </div>
+
+        <div class="step" id="step4">
+            <h2>Step 4: Maintain the Pile</h2>
+            <p>Maintaining your compost pile is crucial. Turn the pile regularly to ensure proper aeration, and monitor
+                moisture levels by adding water if it gets too dry or covering it if it’s too wet.</p>
+            <div class="text-center">
+                <img src="placeholder4.jpg" alt="Maintaining Compost Pile" class="card-img-top" width="500"
+                    height="500">
+            </div>
+        </div>
+
+        <div class="step" id="step5">
+            <h2>Step 5: Harvest the Manure</h2>
+            <p>After a few months, your compost will break down into rich, dark manure. Harvest the manure by removing
+                the fully decomposed material from the bottom of the bin, and it’s ready to be used in your garden!</p>
+            <div class="text-center">
+                <img src="placeholder5.jpg" alt="Harvesting Manure" class="card-img-top" width="500" height="500">
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Script -->
+    <script>
+        function showStep(step) {
+            var steps = document.getElementsByClassName('step');
+            for (var i = 0; i < steps.length; i++) {
+                steps[i].classList.remove('active');
+            }
+            document.getElementById('step' + step).classList.add('active');
+            var links = document.getElementsByClassName('nav-link');
+            for (var j = 0; j < links.length; j++) {
+                links[j].classList.remove('active');
+            }
+            document.querySelector('[href="#step' + step + '"]').classList.add('active');
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

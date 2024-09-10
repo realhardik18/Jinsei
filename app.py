@@ -32,4 +32,8 @@ def suggest_plant():
     # For GET requests or when no valid city was submitted
     return render_template('suggest_plant.html', data=None)
 
+@app.route('/manure_creation')
+def manure():
+    return render_template('manure.html')
+
 app.run(debug=True)

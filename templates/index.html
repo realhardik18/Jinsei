@@ -1,27 +1,48 @@
-{% include "navbar.html" %}
-<style>
-    .hero {
-        background-color: #8A2BE2;
-    }
-</style>
-<section class="hero text-white text-center py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Text on the Left -->
-            <div class="col-md-6 text-md-start">
-                <h1>Welcome to Jinsei</h1>
-                <p class="lead">Discover the incredible beauty and benefits of plants while learning how to transform
-                    your space into a more eco-friendly and sustainable environment. From enhancing air quality to
-                    promoting biodiversity, plants can bring life and tranquility to any setting, making your world
-                    greener, healthier, and more vibrant. Embrace the power of nature and start your journey towards a
-                    more sustainable lifestyle today!
-                </p>
-                <a href="#" class="btn btn-light btn-lg">Explore Plants</a>
-            </div>
-            <!-- Image on the Right -->
-            <div class="col-md-6 text-md-end">
-                <img src="static\familiy.png" class="img-fluid" alt="Placeholder Image">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Jinsei</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background-color: #8A2BE2;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "navbar.html" %}
+
+    <section class="hero text-white text-center py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Text on the Left -->
+                <div class="col-md-6 text-md-start">
+                    <h1>Welcome to Jinsei</h1>
+                    <p class="lead">Discover the incredible beauty and benefits of plants while learning how to
+                        transform
+                        your space into a more eco-friendly and sustainable environment. From enhancing air quality to
+                        promoting biodiversity, plants can bring life and tranquility to any setting, making your world
+                        greener, healthier, and more vibrant. Embrace the power of nature and start your journey towards
+                        a
+                        more sustainable lifestyle today!
+                    </p>
+                    <a href="#" class="btn btn-light btn-lg">Explore Plants</a>
+                </div>
+                <!-- Image on the Right -->
+                <div class="col-md-6 text-md-end">
+                    <img src="static/familiy.png" class="img-fluid" alt="Placeholder Image">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

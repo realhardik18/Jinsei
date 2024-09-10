@@ -3,11 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" IE="edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Create Manure at Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        body {
+            background-color: white;
+            min-height: 100vh;
+        }
+
         .navbar {
             background-color: #6a5acd;
         }
@@ -25,136 +30,189 @@
             display: block;
         }
 
+        .progress {
+            height: 25px;
+            margin-bottom: 20px;
+            background-color: #e0e0e0;
+            /* Light gray background */
+        }
+
+        .progress-bar {
+            background-color: green;
+            /* Plain green progress bar */
+        }
+
+        .bubble-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .bubble-nav .bubble {
+            width: 40px;
+            height: 40px;
+            background-color: #6a5acd;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .bubble-nav .bubble.active {
+            background-color: #4b0082;
+        }
+
         .card-img-top {
             width: 100%;
             height: 500px;
             object-fit: cover;
         }
 
-        .steps-nav {
-            margin-top: 20px;
+        .text-center {
+            text-align: center;
         }
 
-        .steps-nav .nav-item {
-            margin-right: 10px;
-        }
-
-        .steps-nav .nav-item .nav-link {
-            color: #6a5acd;
-        }
-
-        .steps-nav .nav-item .nav-link.active {
-            background-color: #6a5acd;
-            color: white;
+        ul {
+            margin-top: 10px;
         }
     </style>
 </head>
 
-<body>
+<body style="background-color: #8A2BE2;">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">Manure Guide</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    {% include "navbar.html" %}
 
-    <!-- Article Navigation -->
-    <div class="container steps-nav">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link" href="#step1" onclick="showStep(1)">Step 1: Collect Organic Waste</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#step2" onclick="showStep(2)">Step 2: Prepare a Compost Bin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#step3" onclick="showStep(3)">Step 3: Layer the Compost</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#step4" onclick="showStep(4)">Step 4: Maintain the Pile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#step5" onclick="showStep(5)">Step 5: Harvest the Manure</a>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Article Steps -->
-    <div class="container mt-5">
-        <div class="step active" id="step1">
-            <h2>Step 1: Collect Organic Waste</h2>
-            <p>The first step to creating manure at home is to collect organic waste. This includes food scraps such as
-                fruit and vegetable peelings, eggshells, coffee grounds, and garden clippings like leaves and grass.</p>
-            <div class="text-center">
-                <img src="placeholder1.jpg" alt="Organic Waste" class="card-img-top" width="500" height="500">
+    <!-- Progress Bar -->
+    <div class="container mt-5 text-white">
+        <div class="progress">
+            <div class="progress-bar" id="progressBar" style="width: 20%;">
+                Step 1 of 5
             </div>
+        </div>
+
+        <!-- Bubble Navigation -->
+        <div class="bubble-nav">
+            <div class="bubble active" onclick="showStep(1)">1</div>
+            <div class="bubble" onclick="showStep(2)">2</div>
+            <div class="bubble" onclick="showStep(3)">3</div>
+            <div class="bubble" onclick="showStep(4)">4</div>
+            <div class="bubble" onclick="showStep(5)">5</div>
+        </div>
+
+        <!-- Article Steps -->
+        <div class="step active" id="step1">
+            <h2 class="text-center">Step 1: Collect Organic Waste</h2>
+            <p>
+                Begin by collecting organic waste from your kitchen and garden. Ideal materials include fruit and
+                vegetable scraps, coffee grounds, eggshells, grass clippings, and dry leaves. Avoid meat, dairy, or oily
+                foods as they can attract pests. A wide range of natural waste products will provide a nutrient-rich
+                manure.
+            </p>
+            <ul>
+                <li>Make sure to store your waste in a compost bucket with a lid.</li>
+                <li>Shred larger items like cardboard for faster decomposition.</li>
+                <li>Store kitchen waste separately from garden waste to prevent mess.</li>
+                <li>Avoid using diseased plants to prevent spreading plant diseases.</li>
+                <li>Mix a variety of waste for balanced nutrients.</li>
+            </ul>
         </div>
 
         <div class="step" id="step2">
-            <h2>Step 2: Prepare a Compost Bin</h2>
-            <p>Once you've gathered your organic waste, the next step is to prepare a compost bin. Choose a bin that has
-                proper ventilation and is large enough to accommodate your organic waste.</p>
-            <div class="text-center">
-                <img src="placeholder2.jpg" alt="Compost Bin" class="card-img-top" width="500" height="500">
-            </div>
+            <h2 class="text-center">Step 2: Prepare a Compost Bin</h2>
+            <p>
+                Choose a compost bin suited to your space. You can opt for a store-bought compost bin or create your own
+                using materials like wood or plastic. Ensure the bin has adequate ventilation to allow oxygen in, which
+                will speed up the decomposition process of organic materials.
+            </p>
+            <ul>
+                <li>A smaller bin is suitable for apartment balconies or small gardens.</li>
+                <li>Ensure the bin has small holes for ventilation and drainage.</li>
+                <li>Use a bin with a lid to protect the compost from rain.</li>
+                <li>Compost bins should be placed in a well-lit but shaded area.</li>
+                <li>Consider tumbling bins for faster decomposition and easier turning.</li>
+            </ul>
         </div>
 
         <div class="step" id="step3">
-            <h2>Step 3: Layer the Compost</h2>
-            <p>Now that your bin is ready, layer the compost material. Start with a base layer of brown materials like
-                dry leaves or paper, followed by green materials such as fruit scraps, and repeat the layers.</p>
-            <div class="text-center">
-                <img src="placeholder3.jpg" alt="Layering Compost" class="card-img-top" width="500" height="500">
-            </div>
+            <h2 class="text-center">Step 3: Layer the Compost</h2>
+            <p>
+                To achieve optimal decomposition, layer your compost pile. Start with a layer of brown materials such as
+                dry leaves or cardboard, followed by green materials like fruit and vegetable scraps. Repeat this
+                process until your bin is full. This method ensures proper air circulation and nutrient distribution.
+            </p>
+            <ul>
+                <li>Brown materials provide carbon, which is crucial for composting.</li>
+                <li>Green materials add nitrogen, which speeds up the decomposition process.</li>
+                <li>Alternate brown and green layers to balance moisture and aeration.</li>
+                <li>Keep the layers thin for better air circulation.</li>
+                <li>Consider adding some soil between layers to introduce microbes.</li>
+            </ul>
         </div>
 
         <div class="step" id="step4">
-            <h2>Step 4: Maintain the Pile</h2>
-            <p>Maintaining your compost pile is crucial. Turn the pile regularly to ensure proper aeration, and monitor
-                moisture levels by adding water if it gets too dry or covering it if it’s too wet.</p>
-            <div class="text-center">
-                <img src="placeholder4.jpg" alt="Maintaining Compost Pile" class="card-img-top" width="500"
-                    height="500">
-            </div>
+            <h2 class="text-center">Step 4: Maintain the Pile</h2>
+            <p>
+                Regularly maintaining your compost pile is crucial for good results. Turn the pile once a week to aerate
+                it and promote faster decomposition. Keep the compost moist but not waterlogged. If the pile feels too
+                dry, sprinkle some water over it, and if it's too wet, add more dry materials.
+            </p>
+            <ul>
+                <li>Check the temperature of your compost; it should feel warm inside.</li>
+                <li>If your compost smells, it's too wet; add dry brown materials to balance.</li>
+                <li>A well-maintained pile will have an earthy smell, not a rotten one.</li>
+                <li>Keep an eye out for pests like flies; they indicate too much green material.</li>
+                <li>If your compost is too dry, it will slow down the decomposition process.</li>
+            </ul>
         </div>
 
         <div class="step" id="step5">
-            <h2>Step 5: Harvest the Manure</h2>
-            <p>After a few months, your compost will break down into rich, dark manure. Harvest the manure by removing
-                the fully decomposed material from the bottom of the bin, and it’s ready to be used in your garden!</p>
-            <div class="text-center">
-                <img src="placeholder5.jpg" alt="Harvesting Manure" class="card-img-top" width="500" height="500">
-            </div>
+            <h2 class="text-center">Step 5: Harvest the Manure</h2>
+            <p>
+                After a few months, you will notice dark, crumbly compost at the bottom of your bin. This is your
+                homemade manure, rich in nutrients and ready to be used in your garden. Sift out any large chunks that
+                haven’t decomposed, and use your manure to enrich your soil and grow healthy plants.
+            </p>
+            <ul>
+                <li>Check for a sweet, earthy smell to ensure the compost is ready.</li>
+                <li>Sift the compost to remove large, undecomposed materials.</li>
+                <li>The compost should be dark, rich, and crumbly in texture.</li>
+                <li>Use the compost as a top dressing or mix it into garden beds.</li>
+                <li>Compost can also be used in potting mixes for potted plants.</li>
+            </ul>
         </div>
     </div>
 
     <!-- Navigation Script -->
     <script>
-        function showStep(step) {
-            var steps = document.getElementsByClassName('step');
-            for (var i = 0; i < steps.length; i++) {
-                steps[i].classList.remove('active');
-            }
-            document.getElementById('step' + step).classList.add('active');
-            var links = document.getElementsByClassName('nav-link');
-            for (var j = 0; j < links.length; j++) {
-                links[j].classList.remove('active');
-            }
-            document.querySelector('[href="#step' + step + '"]').classList.add('active');
-        }
-    </script>
+        let currentStep = 1;
 
+        function showStep(step) {
+            const totalSteps = 5;
+
+            document.querySelectorAll('.step').forEach(stepDiv => {
+                stepDiv.classList.remove('active');
+            });
+
+            document.querySelector('#step' + step).classList.add('active');
+
+            // Update progress bar
+            const progress = (step / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressBar').innerText = `Step ${step} of ${totalSteps}`;
+
+            // Update bubble nav
+            document.querySelectorAll('.bubble').forEach(bubble => {
+                bubble.classList.remove('active');
+            });
+
+            document.querySelector('.bubble-nav .bubble:nth-child(' + step + ')').classList.add('active');
+        }
+
+        // Initial setup
+        showStep(currentStep);
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

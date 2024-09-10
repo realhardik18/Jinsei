@@ -24,7 +24,7 @@ def suggest_plant():
             for d in data:
                 plants.append(retrieve_plant_data(plant=d.lower()))
             print(data)
-            return render_template('suggest_plant.html', data=plants)
+            return render_template('suggest_plant.html', data=plants,Edata=weather)
         else:
             # No city was entered; render the template with no data
             return render_template('suggest_plant.html', data=None)
@@ -35,5 +35,9 @@ def suggest_plant():
 @app.route('/manure_creation')
 def manure():
     return render_template('manure.html')
+
+@app.route('/scan')
+def scan():
+    return render_template('scan.html')
 
 app.run(debug=True)

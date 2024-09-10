@@ -120,12 +120,22 @@ def initialize_planting_data():
 def retrieve_data(plant):
     with open(r'data\textual_data.json','r') as file:
         data=json.load(file)
-    for plant in list(data.keys()):
-        return data[plant]
+    return data[plant]        
+    
+def retrieve_plant_data(plant):
+    plant_data=dict()
+    plant_data['plant_name']=plant
+    plant_data['img']=get_plant_image(plant)
+    plant_data['fact']=get_random_fact(plant)
+    plant_data['desc']=get_plant_description(plant).replace('**','')
+    return plant_data
+
 
 def get_random_fact(plant):
     return random.choice(list(set(retrieve_data(plant=plant)['facts'])))
 
+def get_plant_description(plant):
+    return retrieve_data(plant=plant)['description']
 #algorithim which calculates which plant would be the most suited
 #first we calculate delta of avg ideal and input temp
 #then the same for relative humidity
@@ -135,13 +145,14 @@ def best_match(temp,RH):
     with open('data\planting_data.json','r') as file:
         data=json.load(file)
     plants=np.array(list(data.keys()))
-    deltaTdiff=[abs(sum(data[plant]['Trange'])/2) - temp for plant in plants]
-    deltaRHdiff=[abs(sum(data[plant]['Trange'])/2 - RH)/100 for plant in plants]
+    deltaTdiff=[abs((sum(data[plant]['Trange'])/2) - temp) for plant in plants]
+    deltaRHdiff=[abs(sum(data[plant]['Trange'])/2 - RH)/10 for plant in plants]
     spread_score=np.array([deltaRHdiff[c] + deltaTdiff[c] for c in range(len(plants))])        
     idx=np.argsort(spread_score)
     plants=np.array(plants)[idx]
     spread_score=np.array(spread_score)[idx]    
-    return plants
+    return plants[0:3]
+    #return plants[0:3]
 
 def get_plant_image(plant_name):
     with open('data/plants.txt','r') as file:
@@ -149,13 +160,3 @@ def get_plant_image(plant_name):
     return f"{f.index(plant_name)}.png"
 
     
-
-#retrieve_data()
-#generate_data()
-#initialize_planting_data()
-#print(best_match(10,10))
-#print(retrieve_data('tomato'))``
-#print(get_random_fact('pepper'))
-#print(best_match(25,50))
-#print(get_city_weather('delhi'))
-print(get_plant_image('tomato'))

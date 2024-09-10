@@ -40,4 +40,8 @@ def manure():
 def scan():
     return render_template('scan.html')
 
+@app.route('/future')
+def future():
+    return render_template('future.html')
+
 app.run(debug=True)
